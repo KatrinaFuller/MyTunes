@@ -21,7 +21,7 @@ export default class MyTunesController {
         _myTunesService.addSubscriber("apiSongs", _drawApiSongs)
 
         //NOTE Retrieve data
-        _myTunesService.getMusicByQuery('ccr')
+        _myTunesService.getMusicByQuery('taylor swift')
     }
 
     search(e) {
