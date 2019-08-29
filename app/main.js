@@ -1,10 +1,10 @@
-import ValuesController from "./Controllers/ValuesController.js";
+import MyTunesController from "./Controllers/MyTunesController.js";
 
 
 class App {
     constructor() {
         this.controllers = {
-            valuesController: new ValuesController()
+            myTunesController: new MyTunesController()
         }
     }
 }
