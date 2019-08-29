@@ -3,9 +3,9 @@ import MyTunesService from "../Services/MyTunesService.js";
 //Private
 let _myTunesService = new MyTunesService()
 
-function _draw() {
-    let elem = document.getElementById('songs')
-    let songs = _myTunesService.Songs
+function _drawApiSongs() {
+    let elem = document.getElementById('api-songs')
+    let songs = _myTunesService.ApiSongs
     let template = '<ul'
     songs.forEach(s => {
         template += s.Template
@@ -18,7 +18,7 @@ function _draw() {
 export default class MyTunesController {
     constructor() {
         //NOTE Register all subscribers
-        _myTunesService.addSubscriber("songs", _draw)
+        _myTunesService.addSubscriber("apiSongs", _drawApiSongs)
 
         //NOTE Retrieve data
         _myTunesService.getMusicByQuery('ccr')

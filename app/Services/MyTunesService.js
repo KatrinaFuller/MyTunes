@@ -1,13 +1,17 @@
 import Song from "../Models/Song.js";
 
+// let _sandBoxApi = axios.create({
+//     baseURL: 'http://bcw-sandbox.herokuapp.com/api/Katrina/songs'
+// })
+
 //Private
 let _state = {
-    songs: []
+    apiSongs: []
 }
 
 //NOTE methods to run when a given property in state changes
 let _subscribers = {
-    songs: []
+    apiSongs: []
 }
 
 function _setState(propName, data) {
@@ -24,17 +28,17 @@ export default class MyTunesService {
         _subscribers[propName].push(fn)
     }
 
-    get Songs() {
-        return _state.songs
+    get ApiSongs() {
+        return _state.apiSongs
     }
 
     getMusicByQuery(query) {
-        var url = 'https://itunes.apple.com/search?callback=?&term=' + query;
+        let url = 'https://itunes.apple.com/search?callback=?&term=' + query;
         // @ts-ignore
         $.getJSON(url)
             .then(res => {
                 let results = res.results.map(rawData => new Song(rawData))
-                _setState('songs', results)
+                _setState('apiSongs', results)
             })
             .catch(err => console.log(err))
     }
