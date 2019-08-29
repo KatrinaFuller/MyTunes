@@ -4,13 +4,12 @@ import MyTunesService from "../Services/MyTunesService.js";
 let _myTunesService = new MyTunesService()
 
 function _drawApiSongs() {
-    let elem = document.getElementById('api-songs')
     let songs = _myTunesService.ApiSongs
-    let template = '<ul'
+    let template = '<ul>'
     songs.forEach(s => {
         template += s.Template
     })
-    elem.innerHTML = template + '</ul>'
+    document.getElementById('api-songs').innerHTML = template + '</ul>'
 }
 
 

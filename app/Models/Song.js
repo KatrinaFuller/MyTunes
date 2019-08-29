@@ -19,6 +19,7 @@ export default class Song {
                     <audio controls src="${this.preview}"></audio>
                 </div>
             </div>
+            <br>
       
         `
     }
